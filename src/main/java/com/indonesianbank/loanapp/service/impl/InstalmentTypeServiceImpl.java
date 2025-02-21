@@ -38,8 +38,7 @@ public class InstalmentTypeServiceImpl implements InstalmentTypeService {
     }
 
     @Override
-    public InstalmentType updateInstalmentType(
-            InstalmentTypeUpdateRequest instalmentTypeUpdateRequest) {
+    public InstalmentType updateInstalmentType(InstalmentTypeUpdateRequest instalmentTypeUpdateRequest) {
         return instalmentTypeRepository
                 .findById(instalmentTypeUpdateRequest.getId())
                 .map(instalmentType -> {

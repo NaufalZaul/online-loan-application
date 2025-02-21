@@ -19,17 +19,14 @@ public class LoanTypeServiceImpl implements LoanTypeService {
 
     @Override
     public LoanType createLoanType(LoanTypeCreateRequest loanTypeCreateRequest) {
-        LoanType loanType = LoanType.builder()
-                .type(loanTypeCreateRequest.getType())
-                .maxLoan(loanTypeCreateRequest.getMaxLoan())
-                .build();
+        LoanType loanType =
+                LoanType.builder().type(loanTypeCreateRequest.getType()).maxLoan(loanTypeCreateRequest.getMaxLoan()).build();
         return loanTypeRepository.save(loanType);
     }
 
     @Override
     public LoanType findLoanTypeById(String id) {
-        return loanTypeRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Loan type not found!"));
+        return loanTypeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Loan type not found!"));
     }
 
     @Override
@@ -39,8 +36,13 @@ public class LoanTypeServiceImpl implements LoanTypeService {
 
     @Override
     public LoanType updateLoanType(LoanTypeUpdateRequest loanTypeUpdateRequest) {
-        LoanType loanType = findLoanTypeById(loanTypeUpdateRequest.getId());
-        return loanTypeRepository.saveAndFlush(loanType);
+        return loanTypeRepository
+                .findById(loanTypeUpdateRequest.getId())
+                .map(loanType -> {
+                    loanType.setType(loanTypeUpdateRequest.getType());
+                    loanType.setMaxLoan(loanTypeUpdateRequest.getMaxLoan());
+                    return loanTypeRepository.saveAndFlush(loanType);
+                }).orElseThrow(() -> new EntityNotFoundException("Loan Type not found!"));
     }
 
     @Override

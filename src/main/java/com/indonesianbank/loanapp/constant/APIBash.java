@@ -36,10 +36,10 @@ public class APIBash {
      */
 
     // LOAN DOCUMENTATION (message)
-    public static final String CREATE_MESSAGE = "Loan type created successfully";
-    public static final String FOUND_MESSAGE = "Loan type data has been found";
-    public static final String UPDATE_MESSAGE = "Loan type updated successfully";
-    public static final String DELETE_MESSAGE = "Loan type deleted successfully";
+    public static final String CREATE_LOAN_MESSAGE = "Loan type created successfully";
+    public static final String FOUND_LOAN_MESSAGE = "Loan type data has been found";
+    public static final String UPDATE_LOAN_MESSAGE = "Loan type updated successfully";
+    public static final String DELETE_LOAN_MESSAGE = "Loan type deleted successfully";
 
     // INSTALMENT TYPE DOCUMENTATION (message)
     public static final String CREATE_INSTALMENT_MESSAGE = "Instalment type created successfully";

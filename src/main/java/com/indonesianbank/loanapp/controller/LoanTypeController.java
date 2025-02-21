@@ -28,7 +28,7 @@ public class LoanTypeController {
         LoanType loanType = loanTypeService.createLoanType(loanTypeCreateRequest);
         CommonResponse<LoanType> commonResponse = CommonResponse
                 .<LoanType>builder()
-                .message(APIBash.CREATE_MESSAGE)
+                .message(APIBash.CREATE_LOAN_MESSAGE)
                 .data(loanType)
                 .build();
         return ResponseEntity.status(HttpStatus.CREATED).body(commonResponse);
@@ -39,7 +39,7 @@ public class LoanTypeController {
         List<LoanType> loanTypeList = loanTypeService.findAllLoanType();
         CommonResponse<List<LoanType>> commonResponse = CommonResponse
                 .<List<LoanType>>builder()
-                .message(APIBash.FOUND_MESSAGE)
+                .message(APIBash.FOUND_LOAN_MESSAGE)
                 .data(loanTypeList)
                 .build();
         return ResponseEntity.ok(commonResponse);
@@ -50,7 +50,7 @@ public class LoanTypeController {
         LoanType loanType = loanTypeService.findLoanTypeById(id);
         CommonResponse<LoanType> commonResponse = CommonResponse
                 .<LoanType>builder()
-                .message(APIBash.FOUND_MESSAGE)
+                .message(APIBash.FOUND_LOAN_MESSAGE)
                 .data(loanType)
                 .build();
         return ResponseEntity.ok(commonResponse);
@@ -63,7 +63,7 @@ public class LoanTypeController {
         LoanType loanType = loanTypeService.updateLoanType(loanTypeUpdateRequest);
         CommonResponse<LoanType> commonResponse = CommonResponse
                 .<LoanType>builder()
-                .message(APIBash.CREATE_MESSAGE)
+                .message(APIBash.UPDATE_LOAN_MESSAGE)
                 .data(loanType)
                 .build();
         return ResponseEntity.ok(commonResponse);
@@ -74,7 +74,7 @@ public class LoanTypeController {
         loanTypeService.deleteLoanType(id);
         CommonResponse<String> commonResponse = CommonResponse
                 .<String>builder()
-                .message(APIBash.DELETE_MESSAGE)
+                .message(APIBash.DELETE_LOAN_MESSAGE)
                 .build();
         return ResponseEntity.ok(commonResponse);
     }
