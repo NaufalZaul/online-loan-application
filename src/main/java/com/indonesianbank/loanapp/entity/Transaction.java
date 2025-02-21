@@ -45,7 +45,7 @@ public class Transaction {
     @Column(name = "approval_status")
     private ApprovalStatus approvalStatus;
 
-    @OneToMany(mappedBy = "transactionDetails", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "transaction", cascade = CascadeType.ALL)
     private List<TransactionDetail> transactionDetails;
 
     @Column(name = "created_at")
