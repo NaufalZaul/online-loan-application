@@ -46,4 +46,13 @@ public class APIBash {
     public static final String FOUND_INSTALMENT_MESSAGE = "Instalment type data has been found";
     public static final String UPDATE_INSTALMENT_MESSAGE = "Instalment type updated successfully";
     public static final String DELETE_INSTALMENT_MESSAGE = "Instalment type deleted successfully";
+
+
+
+    // TRANSACTION DOCUMENTATION (message)
+    public static final String TRANSACTION_MESSAGE = "Transaction successfully";
+    public static final String FOUND_TRANSACTION_MESSAGE = "Transaction data has been found";
+    public static final String APPROVE_TRANSACTION_MESSAGE = "Approve transaction successfully";
+
+
 }
