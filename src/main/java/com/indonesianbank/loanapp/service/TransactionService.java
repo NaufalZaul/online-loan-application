@@ -6,4 +6,5 @@ import com.indonesianbank.loanapp.model.response.TransactionResponse;
 public interface TransactionService {
     TransactionResponse requestLoan(TransactionRequest transactionRequest);
 
+    TransactionResponse findTransactionById(String id);
 }

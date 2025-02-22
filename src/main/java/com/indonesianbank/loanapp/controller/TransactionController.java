@@ -30,4 +30,16 @@ public class TransactionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(commonResponse);
     }
 
+    @GetMapping(APIBash.TRANSACTION_BY_ID_PATH)
+    public ResponseEntity<CommonResponse<TransactionResponse>> findTransactionById(
+            @PathVariable String id
+    ){
+        TransactionResponse transactionResponse = transactionService.findTransactionById(id);
+        CommonResponse<TransactionResponse> commonResponse = CommonResponse
+                .<TransactionResponse>builder()
+                .message(APIBash.FOUND_TRANSACTION_MESSAGE)
+                .data(transactionResponse)
+                .build();
+        return ResponseEntity.ok(commonResponse);
+    }
 }

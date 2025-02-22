@@ -64,4 +64,25 @@ public class TransactionServiceImpl implements TransactionService {
                 .build();
     }
 
+    @Override
+    public TransactionResponse findTransactionById(String id) {
+        Transaction transaction = transactionRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Transaction not found!"));
+        return TransactionResponse.builder()
+                .id(transaction.getId())
+                .loanTypeId(transaction.getLoanType().getId())
+                .instalmentTypeId(transaction.getInstalmentType().getId())
+                .customerId(null)
+                .nominal(transaction.getNominal())
+                .approvedAt(transaction.getApprovedAt())
+                .approvedBy(transaction.getApprovedBy())
+                .approvalStatus(transaction.getApprovalStatus())
+                .transactionDetailResponses(List.of())
+                .createdAt(transaction.getCreatedAt())
+                .updatedAt(null)
+                .build();
+    }
+
+
+
 }
