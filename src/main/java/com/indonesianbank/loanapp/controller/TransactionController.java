@@ -1,6 +1,7 @@
 package com.indonesianbank.loanapp.controller;
 
 import com.indonesianbank.loanapp.constant.APIBash;
+import com.indonesianbank.loanapp.model.request.ApproveTransactionRequest;
 import com.indonesianbank.loanapp.model.request.TransactionRequest;
 import com.indonesianbank.loanapp.model.response.CommonResponse;
 import com.indonesianbank.loanapp.model.response.TransactionResponse;
@@ -42,4 +43,19 @@ public class TransactionController {
                 .build();
         return ResponseEntity.ok(commonResponse);
     }
+
+    @PutMapping(APIBash.APPROVE_TRANSACTION_PATH)
+    public ResponseEntity<CommonResponse<TransactionResponse>> approveTransaction(
+            @PathVariable String adminId,
+            @RequestBody ApproveTransactionRequest approveTransactionRequest
+    ) {
+        TransactionResponse transactionResponse = transactionService.approveTransaction(adminId, approveTransactionRequest);
+        CommonResponse<TransactionResponse> commonResponse = CommonResponse
+                .<TransactionResponse>builder()
+                .message(APIBash.APPROVE_TRANSACTION_MESSAGE)
+                .data(transactionResponse)
+                .build();
+        return ResponseEntity.ok(commonResponse);
+    }
+
 }
